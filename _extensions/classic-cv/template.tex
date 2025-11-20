@@ -63,7 +63,7 @@
 
 \usepackage{fancyhdr}				
 \pagestyle{fancy}
-\usepackage[colorlinks, allcolors=sectcol]{hyperref}
+\usepackage[colorlinks, linkcolor=sectcol, urlcolor=blue, citecolor=sectcol]{hyperref}
 %less space between header and content
 \setlength{\headheight}{-5pt}		
 
@@ -101,6 +101,13 @@
 
 %accent color
 \definecolor{sectcol}{HTML}{$cvcolor$}
+
+% Custom spacing parameters with defaults
+\newlength{\cvsectionspacing}
+\setlength{\cvsectionspacing}{$if(cvsectionspacing)$$cvsectionspacing$$else$6pt$endif$}
+
+\newlength{\hrulewidth}
+\setlength{\hrulewidth}{$if(hrulewidth)$$hrulewidth$$else$0.8\textwidth$endif$}
 
 %dark background color
 \definecolor{bgcol}{RGB}{110,110,110}
@@ -146,6 +153,7 @@
 	\begin{center}
 		\large\textcolor{sectcol}{\textbf{#1}}
 	\end{center}
+	\vspace{\cvsectionspacing}
 }
 
 %
@@ -154,11 +162,17 @@
 \footnotesize{#2} \hspace*{\fill} \footnotesize{#1}\\[1pt]
 }
 
+% New command for metasection without title
+\newcommand{\metasectionnotitle}[2]
+{
+\footnotesize{#1} \hspace*{\fill} \footnotesize{#2}\\[1pt]
+}
+
 %----------------------------------------------------------------------------------------
 %	 CV EVENT
 %----------------------------------------------------------------------------------------
 
-% creates a stretched box as cv entry headline followed by some paragraphs about 
+% creates a stretched box as cv entry headline followed by some paragraphs about
 % the work you did
 % param 1:	event time i.e. 2014 or 2011-2014 etc.
 % param 2:	event name (what did you do?)
@@ -167,18 +181,50 @@
 %
 \newcommand{\cvevent}[4]
 {
+\noindent
 
 \begin{tabular*}{1\textwidth}{p{13.6cm}  x{3.9cm}}
 	\textbf{#2} - \textcolor{bgcol}{#3} &   \vspace{2.5pt}\textcolor{sectcol}{#1}
 \end{tabular*}
 
 \vspace{-8pt}
-\textcolor{softcol}{\hrule}
-\vspace{6pt}
+\hspace*{\fill}\hspace*{-\hrulewidth}\textcolor{softcol}{\rule{\hrulewidth}{0.4pt}}\\
+{\parskip=0pt
+\vspace{-10pt}
 \foreach \desc in {#4}{
-	*  \desc\\[3pt]
+	\par\noindent *  \desc\\[-10pt]
+}}
+
+\vspace{3pt}
 }
-	
+
+% creates a stretched box as cv entry headline with logo followed by some paragraphs about
+% the work you did
+% param 1:	event time i.e. 2014 or 2011-2014 etc.
+% param 2:	event name (what did you do?)
+% param 3:	institution (where did you work / study)
+% param 4:	list of paragraphs
+% param 5:	logo path
+%
+\newcommand{\cveventlogo}[5]
+{
+\noindent
+
+\begin{tabular*}{1\textwidth}{p{0.8cm} p{12.8cm}  x{3.9cm}}
+	\ifthenelse{\equal{#5}{}}{}{
+		\raisebox{-0.3\height}{\includegraphics[height=0.8cm]{#5}}
+	} &
+	\textbf{#2} - \textcolor{bgcol}{#3} &   \vspace{2.5pt}\textcolor{sectcol}{#1}
+\end{tabular*}
+
+\vspace{-8pt}
+\hspace*{\fill}\hspace*{-\hrulewidth}\textcolor{softcol}{\rule{\hrulewidth}{0.4pt}}\\
+{\parskip=0pt
+\vspace{-10pt}
+\foreach \desc in {#4}{
+	\par\noindent *  \desc\\[-10pt]
+}}
+
 \vspace{3pt}
 }
 
@@ -213,7 +259,11 @@
 %	META SECTION
 %----------------------------------------------------------------------------------------
 $for(cvmeta)$
+$if(cvmeta.title)$
 \metasection{$cvmeta.right$}{\textbf{$cvmeta.title$}: $cvmeta.left$}
+$else$
+\metasectionnotitle{$cvmeta.left$}{$cvmeta.right$}
+$endif$
 $endfor$
 
 \vspace{-2pt}
@@ -226,11 +276,27 @@ $endfor$
 $body$
 
 %--------------------------------------------------------------------------------------------------
-%	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth) 
+%	ARTIFICIAL PREFOOTER AND FOOTER (fancy footer cannot exceed linewidth)
 %--------------------------------------------------------------------------------------------------
 
 \null
 \vspace*{\fill}
+
+$if(cvprefooter)$
+% Add prefooter section
+\vspace{-10pt}
+\begin{center}
+$for(cvprefooter)$
+$if(cvprefooter.title)$
+\metasection{$cvprefooter.right$}{\textbf{$cvprefooter.title$}: $cvprefooter.left$}
+$else$
+\metasectionnotitle{$cvprefooter.left$}{$cvprefooter.right$}
+$endif$
+$endfor$
+\end{center}
+\vspace{6pt}
+$endif$
+
 \hspace{-0.25\linewidth}\colorbox{white}{\makebox[1.5\linewidth][c]{\mystrut  \textnormal{\textcolor{sectcol}{$cvfooter.left$}  *  \textcolor{sectcol}{$cvfooter.right$}}}}
 
 \end{document}
