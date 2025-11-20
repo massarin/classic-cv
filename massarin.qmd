@@ -1,0 +1,192 @@
+---
+author: Nicolò Massari
+title: A hitchicker of the cosmos
+format:
+  classic-cv-pdf:
+    pdf-engine: xelatex
+cvcolor: 58748F #without `#`
+cvfont: raleway #texlive fonts like raleway,fetamont,gillius,comfortaa
+# Spacing configuration (optional)
+cvsectionspacing: -6pt  # space after section titles (default: 6pt)
+hrulewidth: 0.93\textwidth  # width of horizontal lines (default: 0.8\textwidth)
+cvmeta:
+  - left: Links
+    right: Contact
+  - left: "[massarin.org](https://massarin.org)"
+    right: "[nicolo.massari@lam.fr](mailto:nicolo.massari@lam.fr)"
+  - left: "[github](https://github.com/massarin) | [linkedin](http://linkedin.com/in/massarin)" 
+    right: Marseille, France
+cvprefooter:
+  - left: Languages
+    right: Skills
+  - left: Italian C2 | English C1 | German A2
+    right: Python | C++ | CI/CD | Git | Bash | ROS 2 | Gazebo | LaTeX
+cvfooter:
+  left: "[massarin.org](https://massarin.org)"
+  right: "[github](https://github.com/massarin)"
+execute:
+  echo: false
+---
+
+```{python}
+#| label: cvevents
+import pandas as pd
+import pypandoc
+
+def convert_markdown_to_latex(text):
+    """Convert markdown to LaTeX using pypandoc"""
+    try:
+        return pypandoc.convert_text(text, 'latex', format='md')
+    except:
+        return text  # fallback to original text if conversion fails
+
+def cvevents(df, when, what, where, details, logo=None):
+    results = []
+    for _, row in df.iterrows():
+        # Check if we have logo information
+        if logo and logo in row and row[logo] and str(row[logo]).strip():
+            command_start = "\\cveventlogo"
+            logo_path = str(row[logo])
+        else:
+            command_start = "\\cvevent"
+            logo_path = None
+
+        # Convert markdown in institution/where field
+        where_text = convert_markdown_to_latex(str(row[where]))
+        res = f"{command_start}{{{row[when]}}}{{{row[what]}}}{{{where_text}}}"
+
+        # Handle details - if it's a list, join with commas and wrap each in braces
+        detail_items = row[details]
+        if isinstance(detail_items, list):
+            # Convert markdown in each detail item
+            converted_items = [convert_markdown_to_latex(str(item)) for item in detail_items]
+            formatted_details = ",".join([f"{{{item}}}" for item in converted_items])
+        else:
+            converted_details = convert_markdown_to_latex(str(detail_items))
+            formatted_details = f"{{{converted_details}}}"
+
+        res = f"{res}{{{formatted_details}}}"
+
+        # Add logo path if using logo command
+        if logo_path:
+            res = f"{res}{{{logo_path}}}"
+
+        results.append(res)
+
+    print("\n".join(results))
+```
+
+# Experience
+
+```{python}
+#| label: experience
+#| output: asis
+#| results: 'asis'
+import pandas as pd
+
+df_experience = pd.DataFrame([
+    {
+        "role": "Research Software Engineer",
+        "institution": "[Global Health Engineering, ETH Zürich](https://ghe.ethz.ch)",
+        "dates": "Mar. 2025 - Nov. 2025",
+        "details": "Open and FAIR Science Development",
+        "logo": "img/ghe_logo.jpg",
+        "tasks": [
+            "Open and FAIR science development for research data publishing",
+            "Developed audio transcription and speaker diarisation software for ETH's cluster",
+            "Skills: Python, CI/CD, Git | [ghe\\_transcribe](https://github.com/Global-Health-Engineering/ghe\\_transcribe)",
+            "Skills: R, Git | [fairenough](https://github.com/openwashdata/fairenough)"
+        ]
+    },
+    {
+        "role": "Simulations Software Engineer",
+        "institution": "[ARIS - Nautilus Project](https://aris-space.ch/our-projects/nautilus/)",
+        "dates": "Oct. 2024 - Nov. 2025",
+        "details": "Autonomous Underwater Vehicle Development",
+        "logo": "img/aris_logo.png",
+        "tasks": [
+            "Built an autonomous underwater vehicle for exploration of Saturn's icy moons",
+            "Contributed to simulations, controls and CI/CD development",
+            "Skills: Python, ROS 2, Gazebo, Git | [dave](https://github.com/Nautilus-UUV/dave)"
+        ]
+    },
+    {
+        "role": "University Teaching Assistant",
+        "institution": "ETH Zürich",
+        "dates": "Sep. 2023 - Jan. 2025",
+        "details": "Mathematics Department",
+        "logo": "img/eth_logo.png",
+        "tasks": [
+            "Conducted weekly university classes to 30+ students of Analysis I and II"
+        ]
+    },
+    {
+        "role": "Tour Guide",
+        "institution": "[Detours Zürich](https://www.detours-zurich.ch/)",
+        "dates": "Aug. 2024 - Oct. 2024",
+        "details": "Tourism",
+        "logo": "img/detours_logo.png",
+        "tasks": [
+            "Developed public speaking and time management skills"
+        ]
+    },
+    {
+        "role": "Design Thinking Coach",
+        "institution": "[PBLabs, ETH Zürich](https://www.linkedin.com/company/pblabs/)",
+        "dates": "Aug. 2023 - Oct. 2023",
+        "details": "Innovation Lab",
+        "logo": "img/pblabs_logo.jpg",
+        "tasks": [
+            "Applied Design Thinking methodologies to problem-solving workshops"
+        ]
+    }
+])
+
+cvevents(df_experience, when="dates", what="role", where="institution", details="tasks", logo="logo")
+```
+
+# Education
+
+```{python}
+#| label: education
+#| output: asis
+#| results: 'asis'
+import pandas as pd
+
+df_education = pd.DataFrame([
+    {
+        "degree": "MSc Computational Cosmology and Astrophysics",
+        "uni": "ETH Zürich",
+        "loc": "Zurich, Switzerland",
+        "dates": "Sep. 2022 - Jun. 2024",
+        "logo": "img/eth_logo.png",
+        "details": [
+            "Thesis: Implemented a novel 2D inference tool using physics informed Gaussian Processes and Monte Carlo Markov Chain. Developing a field level inference auto differentiable pipeline in JAX.",
+            "Project: Simulated k-essence models of dark energy with different small sound speeds with the [gevelution](https://github.com/gevolution-code/gevolution-1.2) code",
+            "Skills: Python, Slurm, Git, LaTeX | [cosmogp](https://github.com/massarin/cosmogp)"
+        ]
+    },
+    {
+        "degree": "BSc Physics",
+        "uni": "University of Bristol",
+        "loc": "Bristol, UK",
+        "dates": "Sep. 2021 - Jun. 2022",
+        "logo": "img/uni_bris_logo.png",
+        "details": ["Erasmus+ grant for an exchange year in Bristol"]
+    },
+    {
+        "degree": "BSc Physics",
+        "uni": "University of Bologna",
+        "loc": "Bologna, Italy",
+        "dates": "Sep. 2019 - Jun. 2022",
+        "logo": "img/unibo_logo.jpg",
+        "details": [
+            "Project: Developed a simulation of infectious disease spread on a grid following the SIR model",
+            "Skills: C++, Bash, Git | [board\\_game](https://github.com/massarin/board\\_game)"
+        ]
+    }
+])
+
+cvevents(df_education, when="dates", what="degree", where="loc", details="details", logo="logo")
+```
+
