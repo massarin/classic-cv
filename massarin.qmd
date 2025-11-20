@@ -6,9 +6,12 @@ format:
     pdf-engine: xelatex
 cvcolor: 58748F #without `#`
 cvfont: raleway #texlive fonts like raleway,fetamont,gillius,comfortaa
-# Spacing configuration (optional)
-cvsectionspacing: -6pt  # space after section titles (default: 6pt)
-hrulewidth: 0.93\textwidth  # width of horizontal lines (default: 0.8\textwidth)
+# Spacing configuration
+spacingscale: 0  # additive scaling factor: final_value = base_value + spacingscale × |base_value| (0 = no change, 1 = double spacing, -0.5 = half spacing)
+cvsectionspacing: -6pt  # base spacing after section titles 
+cveventspacing: 3pt  # base spacing between cvevents
+cveventitemspacing: -10pt  # base spacing between cvevent items
+hrulewidth: 0.93\textwidth  # width of horizontal lines (independent of spacing scale)
 cvmeta:
   - left: Links
     right: Contact
@@ -20,7 +23,7 @@ cvprefooter:
   - left: Languages
     right: Skills
   - left: Italian C2 | English C1 | German A2
-    right: Python | C++ | CI/CD | Git | Bash | ROS 2 | Gazebo | LaTeX
+    right: Python | C++ | CI/CD | Git | Bash | ROS 2 | Gazebo
 cvfooter:
   left: "[massarin.org](https://massarin.org)"
   right: "[github](https://github.com/massarin)"
@@ -155,6 +158,17 @@ import pandas as pd
 
 df_education = pd.DataFrame([
     {
+        "degree": "PhD Disentangling galaxy mass with gravitational lensing",
+        "uni": "Laboratoire d'Astrophysique de Marseille",
+        "loc": "Marseille, France",
+        "dates": "Dec. 2025 - Dec. 2028",
+        "logo": "img/lam_logo.png",
+        "details": [
+            "Thesis: Using strong and weak gravitational lensing data from Euclid to map the distribution of dark matter and baryonic matter in galaxies. Developing Bayesian hierarchical models to constrain the stellar-to-halo mass relation.",
+            "Skills: Python, Git"
+        ]
+    },
+    {
         "degree": "MSc Computational Cosmology and Astrophysics",
         "uni": "ETH Zürich",
         "loc": "Zurich, Switzerland",
@@ -163,7 +177,7 @@ df_education = pd.DataFrame([
         "details": [
             "Thesis: Implemented a novel 2D inference tool using physics informed Gaussian Processes and Monte Carlo Markov Chain. Developing a field level inference auto differentiable pipeline in JAX.",
             "Project: Simulated k-essence models of dark energy with different small sound speeds with the [gevelution](https://github.com/gevolution-code/gevolution-1.2) code",
-            "Skills: Python, Slurm, Git, LaTeX | [cosmogp](https://github.com/massarin/cosmogp)"
+            "Skills: Python, Slurm, Git,  | [cosmogp](https://github.com/massarin/cosmogp)"
         ]
     },
     {

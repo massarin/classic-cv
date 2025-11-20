@@ -1,2 +1,4 @@
 venv/
 *_files/libs/
+.DS_Store
+*.svg
