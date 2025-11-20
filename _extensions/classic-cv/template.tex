@@ -102,12 +102,30 @@
 %accent color
 \definecolor{sectcol}{HTML}{$cvcolor$}
 
-% Custom spacing parameters with defaults
+% Custom spacing parameters with additive scaling
+% Formula: final_value = default_value + spacingscale * abs(default_value)
+\newcommand{\spacingscale}{$if(spacingscale)$$spacingscale$$else$0$endif$}
+
 \newlength{\cvsectionspacing}
-\setlength{\cvsectionspacing}{$if(cvsectionspacing)$$cvsectionspacing$$else$6pt$endif$}
+\newlength{\cvsectionspacingbase}
+\setlength{\cvsectionspacingbase}{$if(cvsectionspacing)$$cvsectionspacing$$else$-6pt$endif$}
+\setlength{\cvsectionspacing}{\cvsectionspacingbase}
+\addtolength{\cvsectionspacing}{\spacingscale\dimexpr\ifdim\cvsectionspacingbase<0pt -\cvsectionspacingbase\else\cvsectionspacingbase\fi\relax}
 
 \newlength{\hrulewidth}
 \setlength{\hrulewidth}{$if(hrulewidth)$$hrulewidth$$else$0.8\textwidth$endif$}
+
+\newlength{\cveventspacing}
+\newlength{\cveventspacingbase}
+\setlength{\cveventspacingbase}{$if(cveventspacing)$$cveventspacing$$else$3pt$endif$}
+\setlength{\cveventspacing}{\cveventspacingbase}
+\addtolength{\cveventspacing}{\spacingscale\dimexpr\ifdim\cveventspacingbase<0pt -\cveventspacingbase\else\cveventspacingbase\fi\relax}
+
+\newlength{\cveventitemspacing}
+\newlength{\cveventitemspacingbase}
+\setlength{\cveventitemspacingbase}{$if(cveventitemspacing)$$cveventitemspacing$$else$-10pt$endif$}
+\setlength{\cveventitemspacing}{\cveventitemspacingbase}
+\addtolength{\cveventitemspacing}{\spacingscale\dimexpr\ifdim\cveventitemspacingbase<0pt -\cveventitemspacingbase\else\cveventitemspacingbase\fi\relax}
 
 %dark background color
 \definecolor{bgcol}{RGB}{110,110,110}
@@ -192,10 +210,10 @@
 {\parskip=0pt
 \vspace{-10pt}
 \foreach \desc in {#4}{
-	\par\noindent *  \desc\\[-10pt]
+	\par\noindent *  \desc\\[\cveventitemspacing]
 }}
 
-\vspace{3pt}
+\vspace{\cveventspacing}
 }
 
 % creates a stretched box as cv entry headline with logo followed by some paragraphs about
@@ -212,7 +230,7 @@
 
 \begin{tabular*}{1\textwidth}{p{0.8cm} p{12.8cm}  x{3.9cm}}
 	\ifthenelse{\equal{#5}{}}{}{
-		\raisebox{-0.3\height}{\includegraphics[height=0.8cm]{#5}}
+		\raisebox{-0.3\height}{\includegraphics[width=0.8cm]{#5}}
 	} &
 	\textbf{#2} - \textcolor{bgcol}{#3} &   \vspace{2.5pt}\textcolor{sectcol}{#1}
 \end{tabular*}
@@ -222,10 +240,10 @@
 {\parskip=0pt
 \vspace{-10pt}
 \foreach \desc in {#4}{
-	\par\noindent *  \desc\\[-10pt]
+	\par\noindent *  \desc\\[\cveventitemspacing]
 }}
 
-\vspace{3pt}
+\vspace{\cveventspacing}
 }
 
 % creates a stretched box as 
