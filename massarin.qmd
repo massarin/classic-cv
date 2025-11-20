@@ -7,7 +7,7 @@ format:
 cvcolor: 58748F #without `#`
 cvfont: raleway #texlive fonts like raleway,fetamont,gillius,comfortaa
 # Spacing configuration
-spacingscale: 0  # additive scaling factor: final_value = base_value + spacingscale × |base_value| (0 = no change, 1 = double spacing, -0.5 = half spacing)
+spacingscale: 0.4  # additive scaling factor: final_value = base_value + spacingscale × |base_value| (0 = no change, 1 = double spacing, -0.5 = half spacing)
 cvsectionspacing: -6pt  # base spacing after section titles 
 cveventspacing: 3pt  # base spacing between cvevents
 cveventitemspacing: -10pt  # base spacing between cvevent items
