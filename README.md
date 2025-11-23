@@ -6,6 +6,17 @@ A template to create a cv/resume with Quarto.
 ![](classic-cv.png)
 
 ## Installing
+System deps:
+```
+texlive-xetex
+pandoc
+quarto
+```
+
+Python deps:
+```bash
+pip install pypandoc jupyter pandas
+```
 
 ```bash
 quarto use template schochastics/classic-cv
