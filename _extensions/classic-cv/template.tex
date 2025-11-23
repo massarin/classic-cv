@@ -201,7 +201,7 @@
 {
 \noindent
 
-\begin{tabular*}{1\textwidth}{p{13.6cm}  x{3.9cm}}
+\begin{tabular*}{1\textwidth}{p{13.6cm} @{\extracolsep{\fill}} r}
 	\textbf{#2} - \textcolor{bgcol}{#3} &   \vspace{2.5pt}\textcolor{sectcol}{#1}
 \end{tabular*}
 
@@ -228,7 +228,7 @@
 {
 \noindent
 
-\begin{tabular*}{1\textwidth}{p{0.8cm} p{12.8cm}  x{3.9cm}}
+\begin{tabular*}{1\textwidth}{p{0.8cm} p{12.8cm} @{\extracolsep{\fill}} r}
 	\ifthenelse{\equal{#5}{}}{}{
 		\raisebox{-0.3\height}{\includegraphics[width=0.8cm]{#5}}
 	} &
