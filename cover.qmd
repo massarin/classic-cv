@@ -33,7 +33,7 @@ Dear Euclid Consortium committee,
 
 I am writing to express my interest and motivation to become a member of the Euclid project, specifically to join the Weak Lensing (WL) and Strong Lensing (SL) Science Working Groups alongside my supervisor Dr. Raphael Gavazzi.
 
-During my masters I have worked on a Gaussian processed based Bayesian hierarchical model of weak lensing maps at field level with Prof. Alexandre Refregier and Dr. Tilman Tröster. Recently, I have started a PhD with Dr. Raphael Gavazzi at the Laboratoire d'Astrophisique de Marseille, where I will be working on using flexion lensing analysis on Euclid data, with the goal of contributing to the data analysis for Data Release 1 (DR1) scheduled for October 21, 2026.
+During my masters I have worked on a Gaussian processed based Bayesian hierarchical model of weak lensing maps at field level with Prof. Alexandre Refregier and Dr. Tilman Tröster. Recently, I have started a PhD with Dr. Raphael Gavazzi at the Laboratoire d'Astrophisique de Marseille, where I will be working on flexion lensing, with the goal of contributing to the analysis of Data Release 1 (DR1) scheduled for October 21, 2026.
 \vspace{0.5cm}
 
 Traditional weak lensing analysis measures convergence ($\kappa$) and shear ($\gamma$), which arise from second derivatives of the lensing potential and manifest as changes in galaxy ellipticity. However, as demonstrated by Bacon et al. (2006)[^1], **flexion is the significant third-order weak gravitational lensing effect responsible for the weakly skewed and arc-like appearance of lensed galaxies**.
@@ -47,9 +47,9 @@ I will develop an analysis framework that:
 
 The output I hope to achieve is:
 
+- Detect dark matter substructure in galaxy groups and clusters
 - Measure dark matter halo concentrations with factor-of-three improvements in precision
-- Detect and characterize dark matter substructure in galaxy groups and clusters
-- Test modified gravity theories through complementary constraints that break model degeneracies
+- Test modified gravity theories with these additional constraints
 
 I am excited about the prospect of contributing to the largest weak lensing survey yet covering more than a third of the sky, and can't wait to collaborate.
 \vspace{0.5cm}
