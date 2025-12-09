@@ -1,6 +1,7 @@
 ---
 author: Nicolò Massari
 title: A hitchicker of the cosmos
+cvheadline: Resume  # Change this to customize the title headline (e.g., "CV", "Curriculum Vitae", "Resume")
 format:
   classic-cv-pdf:
     pdf-engine: xelatex
