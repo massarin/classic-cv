@@ -1,0 +1,61 @@
+---
+author: Nicolò Massari
+title: A hitchicker of the cosmos
+format:
+  classic-cv-pdf:
+    pdf-engine: xelatex
+cvcolor: 58748F #without `#`
+cvfont: raleway #texlive fonts like raleway,fetamont,gillius,comfortaa
+# Spacing configuration
+spacingscale: 0.4  # additive scaling factor: final_value = base_value + spacingscale × |base_value| (0 = no change, 1 = double spacing, -0.5 = half spacing)
+cvsectionspacing: -6pt  # base spacing after section titles
+cveventspacing: 3pt  # base spacing between cvevents
+cveventitemspacing: -10pt  # base spacing between cvevent items
+hrulewidth: 0.93\textwidth  # width of horizontal lines (independent of spacing scale)
+cvmeta:
+  - left: Links
+    right: Contact
+  - left: "[massarin.org](https://massarin.org)"
+    right: "[nicolo.massari@lam.fr](mailto:nicolo.massari@lam.fr)"
+  - left: "[github](https://github.com/massarin) | [linkedin](http://linkedin.com/in/massarin)"
+    right: Marseille, France
+cvfooter:
+  left: "[massarin.org](https://massarin.org)"
+  right: "[github](https://github.com/massarin)"
+execute:
+  echo: false
+---
+
+\vspace{1cm}
+
+Dear Euclid Consortium committee,
+\vspace{0.5cm}
+
+I am writing to express my interest and motivation to become a member of the Euclid project, specifically to join the Weak Lensing (WL) and Strong Lensing (SL) Science Working Groups alongside my supervisor Dr. Raphael Gavazzi.
+
+During my masters I have worked on a Gaussian processed based Bayesian hierarchical model of weak lensing maps at field level with Prof. Alexandre Refregier and Dr. Tilman Tröster. Recently, I have started a PhD with Dr. Raphael Gavazzi at the Laboratoire d'Astrophisique de Marseille, where I will be working on using flexion lensing analysis on Euclid data, with the goal of contributing to the data analysis for Data Release 1 (DR1) scheduled for October 21, 2026.
+\vspace{0.5cm}
+
+Traditional weak lensing analysis measures convergence ($\kappa$) and shear ($\gamma$), which arise from second derivatives of the lensing potential and manifest as changes in galaxy ellipticity. However, as demonstrated by Bacon et al. (2006)[^1], **flexion is the significant third-order weak gravitational lensing effect responsible for the weakly skewed and arc-like appearance of lensed galaxies**.
+
+![from Bacon et al. illustrates the hierarchy of lensing distortions with increasing spin values: convergence (spin-0), first flexion F (spin-1), shear (spin-2), and second flexion G (spin-3).](img/bacon_2006_fig1.png){width=300}
+
+I will develop an analysis framework that:
+
+- Validates the methodology using hydrodynamical simulations
+- Extends existing $3\times2$ pt pipelines to include flexion correlation functions and cross-correlations with shear
+
+The output I hope to achieve is:
+
+- Measure dark matter halo concentrations with factor-of-three improvements in precision
+- Detect and characterize dark matter substructure in galaxy groups and clusters
+- Test modified gravity theories through complementary constraints that break model degeneracies
+
+I am excited about the prospect of contributing to the largest weak lensing survey yet covering more than a third of the sky, and can't wait to collaborate.
+\vspace{0.5cm}
+
+Best regards,
+
+Nicolò Massari
+
+[^1]: D. J. Bacon, D. M. Goldberg, B. T. P. Rowe, A. N. Taylor, Weak gravitational flexion, Monthly Notices of the Royal Astronomical Society, Volume 365, Issue 2, January 2006, Pages 414–428, https://doi.org/10.1111/j.1365-2966.2005.09624.x

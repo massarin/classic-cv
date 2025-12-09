@@ -95,8 +95,8 @@ df_experience = pd.DataFrame([
         "details": "Open and FAIR Science Development",
         "logo": "img/ghe_logo.jpg",
         "tasks": [
-            "Open and FAIR science development for research data publishing",
-            "Developed audio transcription and speaker diarisation software for ETH's cluster",
+            "Worked to promote open and FAIR science development for research and data publishing",
+            "Developed audio transcription and speaker diarisation software for and a tool to make data publication easier",
             "Skills: Python, CI/CD, Git | [ghe\\_transcribe](https://github.com/Global-Health-Engineering/ghe\\_transcribe)",
             "Skills: R, Git | [fairenough](https://github.com/openwashdata/fairenough)"
         ]
@@ -109,8 +109,8 @@ df_experience = pd.DataFrame([
         "logo": "img/aris_logo.png",
         "tasks": [
             "Built an autonomous underwater vehicle for exploration of Saturn's icy moons",
-            "Contributed to simulations, controls and CI/CD development",
-            "Skills: Python, ROS 2, Gazebo, Git | [dave](https://github.com/Nautilus-UUV/dave)"
+            "Contributed to simulations ([dave](https://github.com/Nautilus-UUV/dave)), controls and CI/CD development",
+            "Skills: Python, ROS 2, Gazebo, Git"
         ]
     },
     {
@@ -164,7 +164,7 @@ df_education = pd.DataFrame([
         "dates": "Dec. 2025 - Dec. 2028",
         "logo": "img/lam_logo.png",
         "details": [
-            "Thesis: Using strong and weak gravitational lensing data from Euclid to map the distribution of dark matter and baryonic matter in galaxies. Developing Bayesian hierarchical models to constrain the stellar-to-halo mass relation.",
+            "Thesis: Using strong and weak gravitational lensing data from Euclid to probe galaxy mass profiles with a Bayesian hierarchical model approach, in order to test dark matter candidates beyond $\\Lambda$CDM",
             "Skills: Python, Git"
         ]
     },
@@ -175,9 +175,9 @@ df_education = pd.DataFrame([
         "dates": "Sep. 2022 - Jun. 2024",
         "logo": "img/eth_logo.png",
         "details": [
-            "Thesis: Implemented a novel 2D inference tool using physics informed Gaussian Processes and Monte Carlo Markov Chain. Developing a field level inference auto differentiable pipeline in JAX.",
+            "Thesis: Developed a field level auto differentiable tool for weak lensing using physics informed Gaussian Processes ([cosmogp](https://github.com/massarin/cosmogp)). With it I found my fiducial cosmology within $1\\sigma$ confidence with a Markov chain Monte Carlo estimation.",
             "Project: Simulated k-essence models of dark energy with different small sound speeds with the [gevelution](https://github.com/gevolution-code/gevolution-1.2) code",
-            "Skills: Python, Slurm, Git,  | [cosmogp](https://github.com/massarin/cosmogp)"
+            "Skills: Python, Slurm, Git"
         ]
     },
     {

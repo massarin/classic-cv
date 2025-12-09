@@ -258,6 +258,15 @@
 %----------------------------------------- -----------------------------------------------
 \newcommand{\mystrut}{\rule[-.3\baselineskip]{0pt}{\baselineskip}}
 
+%----------------------------------------------------------------------------------------
+% PANDOC COMPATIBILITY
+%----------------------------------------------------------------------------------------
+% Define pandocbounded for image handling (Pandoc compatibility)
+\providecommand{\pandocbounded}[1]{#1}
+% Define tightlist for compact lists (Pandoc compatibility)
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
 \begin{document}
 
 \pagestyle{fancy}
